@@ -2,17 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
+import { AlertifyService } from './_services/alertify.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      NavComponent
+      LoginComponent
    ],
    imports: [
       BrowserModule
    ],
-   providers: [],
+   providers: [
+      AlertifyService
+   ],
    bootstrap: [
       AppComponent
    ]
