@@ -1,17 +1,25 @@
-<div class="text-center body-login">
-  <form class="form-signin">
-    <img class="mb-4" src="../../assets/user.png" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
-  </form>
+<div class="container-fluid full-height">
+  <div class="row text-center h-100 form-login">
+      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login()">
+          <img class="mb-4" src="../../assets/user.png" alt="" width="72" height="72" />
+          <h1 class="h3 mb-3 font-weight-normal text-info">Please sign in</h1>
+          <div class="row">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Username" required [(ngModel)]="model.username"/>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control mt-2" placeholder="Password" required [(ngModel)]="model.password"/>
+          </div>
+          <div class="checkbox mt-2 mb-2 text-info">
+            <label>
+              <input type="checkbox" value="remember-me" /> Remember me
+            </label>
+          </div>
+          <div class="row clearfix">
+            <button [disabled]="!loginForm.valid" class="btn btn-lg btn-outline-info btn-block" type="submit">
+              Sign in
+            </button>
+          </div>
+          <p class="mt-5 mb-3 text-muted text-info">© 2017-2019</p>
+        </form>
+  </div>
 </div>
