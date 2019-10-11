@@ -1,3 +1,59 @@
-<p>
-  warehouse works!
-</p>
+<div class="app">
+  <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/warehouse']">
+      <img class="navbar-brand-full" src="../../../assets/logo.svg" width="89" height="25" alt="POS Warehouse">
+    </a>
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto mx-4">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/warehouse']">Dashboard</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/Reports']">Reports</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/users']">User</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/settings']">Settings</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item dropdown mx-2" routerLinkActive="active">
+              <a class="nav-link" href="#">
+                <i class="fa fa-bell-o"></i>
+                <span class="badge badge-pill badge-danger">5</span>
+              </a>
+          </li>
+          <li class="nav-item dropdown mx-2" routerLinkActive="active">
+              <a class="nav-link" href="#">
+                <i class="fa fa-list-ul"></i>
+                <span class="badge badge-pill badge-warning">15</span>
+              </a>
+          </li>
+          <li class="nav-item dropdown mx-2" routerLinkActive="active">
+              <a class="nav-link" href="#">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge badge-pill badge-info">17</span>
+              </a>
+          </li>
+          <li class="nav-item dropdown mx-2" routerLinkActive="active">
+            <a class="nav-link" href="#">
+              <img class="img-avatar" src="../../../assets/user.png" alt="User">
+            </a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-body">
+    <div class="sidebar">
+      
+    </div>
+    <main class="main"></main>
+  </div>
+</div>
