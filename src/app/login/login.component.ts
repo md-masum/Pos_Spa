@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.loggedIn()) {
-      this.router.navigate(['/warehouse']);
+      this.router.navigate(['/warehouse/home']);
     }
   }
 
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       this.alertify.error(error);
     }, () => {
       const userRole: string = this.authService.decodedToken.role;
-      this.router.navigate(['/warehouse']);
+      this.router.navigate(['/warehouse/home']);
     });
   }
 
