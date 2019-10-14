@@ -52,4 +52,19 @@ export class CategoryComponent implements OnInit, AfterViewInit {
      this.alertify.error(error);
    });
  }
+
+ deleteCategory(id: number) {
+  this.alertify.confirm('Are you sure you want to delete this category?', () => {
+    this.setupService.deleteCategorys(id).subscribe(() => {
+      this.categorys.splice(this.categorys.findIndex(p => p.id === id), 1);
+      this.alertify.success('Category has been deleted');
+    }, error => {
+      this.alertify.error('failed to delete this category');
+    });
+  });
+ }
+
+ getCategory(id: number) {
+   this.setupService.getCategory(id).subscribe();
+ }
 }

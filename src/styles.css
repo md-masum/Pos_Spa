@@ -8,7 +8,7 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
-@import '../node_modules/@coreui/icons/css/coreui-icons.css';
+@import '../node_modules/@coreui/icons/css/free.min.css';
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/@coreui/coreui/dist/css/coreui.min.css';
 

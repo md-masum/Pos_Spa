@@ -34,4 +34,12 @@ getCategorys(page?, itemPerPage?): Observable<PaginatedResult<Category[]>> {
     })
   );
 }
+
+getCategory(id: number): Observable<Category> {
+  return this.http.get<Category>(this.baseUrl + 'category/' + id);
+}
+
+deleteCategorys(id: number) {
+  return this.http.delete(this.baseUrl + 'category/' + id);
+}
 }

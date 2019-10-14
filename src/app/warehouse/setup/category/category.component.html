@@ -61,7 +61,7 @@
                       <span *ngIf="!category.activeStatus" class="badge badge-danger">inactive</span>
                   </td>
                   <td>
-                    <a>Edit</a> || <a>Delete</a>
+                    <a class="text-info mr-2"><i class="fa fa-pencil-square-o"></i></a> | <a class="text-danger ml-2" (click)="deleteCategory(category.id)"><i class="fa fa-trash-o"></i></a>
                   </td>
                 </tr>
               </tbody>

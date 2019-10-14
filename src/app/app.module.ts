@@ -36,7 +36,6 @@ import { AuthGuard } from './_guards/auth.guard';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HomeComponent } from './warehouse/home/home.component';
 import { DashboardComponent } from './warehouse/dashboard/dashboard.component';
-import { TopNavComponent } from './warehouse/top-nav/top-nav.component';
 import { SetupService } from './_services/setup.service';
 import { CategorysListResolver } from './_resolvers/category-list.resolver';
 
@@ -49,7 +48,6 @@ export function tokenGetters() {
       AppComponent,
       LoginComponent,
       WarehouseComponent,
-      TopNavComponent,
       ShopComponent,
       HomeComponent,
       DashboardComponent,
