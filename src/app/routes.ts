@@ -7,6 +7,7 @@ import { CategoryComponent } from './warehouse/setup/category/category.component
 import { SubCategoryComponent } from './warehouse/setup/sub-category/sub-category.component';
 import { HomeComponent } from './warehouse/home/home.component';
 import { DashboardComponent } from './warehouse/dashboard/dashboard.component';
+import { CategorysListResolver } from './_resolvers/category-list.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: LoginComponent, pathMatch: 'full'},
@@ -18,7 +19,7 @@ export const appRoutes: Routes = [
         children: [
             { path: 'warehouse/home', component: HomeComponent},
             { path: 'warehouse/dashboard', component: DashboardComponent},
-            { path: 'warehouse/setup/category', component: CategoryComponent},
+            { path: 'warehouse/setup/category', component: CategoryComponent, resolve: {category: CategorysListResolver}},
             { path: 'warehouse/setup/sub-category', component: SubCategoryComponent},
         ]
     },

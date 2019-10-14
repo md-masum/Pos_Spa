@@ -1,15 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, CollapseModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+   suppressScrollX: true
+ };
+
+import { from } from 'rxjs';
+
+import {
+   AppAsideModule,
+   AppBreadcrumbModule,
+   AppHeaderModule,
+   AppFooterModule,
+   AppSidebarModule,
+ } from '@coreui/angular';
 
 import { AppComponent } from './app.component';
 import { AlertifyService } from './_services/alertify.service';
 import { LoginComponent } from './login/login.component';
-import { from } from 'rxjs';
 import { AuthService } from './_services/auth.service';
 import { appRoutes } from './routes';
 import { WarehouseComponent } from './warehouse/warehouse/warehouse.component';
@@ -21,6 +37,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { HomeComponent } from './warehouse/home/home.component';
 import { DashboardComponent } from './warehouse/dashboard/dashboard.component';
 import { TopNavComponent } from './warehouse/top-nav/top-nav.component';
+import { SetupService } from './_services/setup.service';
+import { CategorysListResolver } from './_resolvers/category-list.resolver';
 
 export function tokenGetters() {
    return localStorage.getItem('token');
@@ -40,15 +58,22 @@ export function tokenGetters() {
    ],
    imports: [
       BrowserModule,
+      BrowserAnimationsModule,
+      RouterModule.forRoot(appRoutes),
+      AppAsideModule,
+      AppBreadcrumbModule.forRoot(),
+      AppFooterModule,
+      AppHeaderModule,
+      AppSidebarModule,
+      PerfectScrollbarModule,
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
-      RouterModule.forRoot(appRoutes),
-      BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
       PaginationModule.forRoot(),
       TabsModule.forRoot(),
+      CollapseModule.forRoot(),
       ButtonsModule.forRoot(),
       JwtModule.forRoot({
          config: {
@@ -60,8 +85,10 @@ export function tokenGetters() {
    ],
    providers: [
       AuthService,
+      SetupService,
       AlertifyService,
-      AuthGuard
+      AuthGuard,
+      CategorysListResolver
    ],
    bootstrap: [
       AppComponent

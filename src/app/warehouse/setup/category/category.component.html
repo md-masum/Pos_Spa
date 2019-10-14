@@ -1,3 +1,81 @@
-<p>
-  category works!
-</p>
+<h4>Manage Category</h4>
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header bg-primary">
+      Add Category
+      <div class="card-header-actions">
+        <a (click)="isCollapsed = !isCollapsed">
+          <i *ngIf="isCollapsed" class="fa fa-plus"></i>
+          <i *ngIf="!isCollapsed" class="fa fa-minus"></i>
+        </a>
+      </div>
+    </div>
+    <div class="card-body" (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="isCollapsed">
+      <form action="" method="post" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Email</label>
+          <div class="col-md-9">
+            <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Enter Email.." autocomplete="email">
+            <span class="help-block">Please enter your email</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-password">Password</label>
+          <div class="col-md-9">
+            <input type="password" id="hf-password" name="hf-password" class="form-control" placeholder="Enter Password.." autocomplete="current-password">
+            <span class="help-block">Please enter your password</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="animated fadeIn">
+    <div class="card">
+      <div class="card-header bg-info">
+        Category List
+        <div class="card-header-actions">
+          <a (click)="isCollapsed = !isCollapsed">
+            <i *ngIf="isCollapsed" class="fa fa-plus"></i>
+            <i *ngIf="!isCollapsed" class="fa fa-minus"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card-body" (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="isCollapsed">
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th style="width: 10%;">#</th>
+                  <th>Category Name</th>
+                  <th>Active status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of categorys">
+                  <td>{{category.id}}</td>
+                  <td>{{category.name}}</td>
+                  <td>
+                      <span *ngIf="category.activeStatus" class="badge badge-success">Active</span>
+                      <span *ngIf="!category.activeStatus" class="badge badge-danger">inactive</span>
+                  </td>
+                  <td>
+                    <a>Edit</a> || <a>Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <pagination [boundaryLinks]="true" 
+                [totalItems]="pagination.totalItems"
+                [itemsPerPage]="pagination.itemsPerPage"
+                [(ngModel)]="pagination.currentPage"
+                (pageChanged)="pageChanged($event)"
+              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+ 
+</pagination>
+            </div>            
+      </div>
+    </div>
+  </div>
